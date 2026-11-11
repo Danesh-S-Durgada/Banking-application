@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: banking-application
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/bankingdb}
+    username: ${DB_USERNAME:bankuser}
+    password: ${DB_PASSWORD:bankpass}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
